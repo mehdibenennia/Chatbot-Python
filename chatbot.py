@@ -8,7 +8,7 @@ from langchain.agents.openai_assistant import OpenAIAssistantRunnable
 st.title("Datawise Bot")
 
 # Initialize OpenAI client with your API key
-client = OpenAI(api_key="st.secrets["OPENAI_API_KEY"]")
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 # Initialize OpenAI Assistant
 assistant_id = st.secrets["ASSISTANT_ID"]
