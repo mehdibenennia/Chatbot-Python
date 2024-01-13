@@ -29,12 +29,11 @@ is_typing = False
 def simulate_typing():
     global is_typing
     is_typing = True
-    st.session_state.messages.append({"role": "Assistant", "content": "Assistant is typing...", "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
-    st.session.sync()
+    typing_message = {"role": "Assistant", "content": "Assistant is typing...", "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
+    st.session_state.messages.append(typing_message)
     time.sleep(2)  # Simulate typing for 2 seconds
     is_typing = False
-    st.session_state.messages.pop()  # Remove the typing indicator
-    st.session.sync()
+    st.session_state.messages.remove(typing_message)  # Remove the typing indicator
 
 # Display chat messages
 for message in st.session_state.messages:
