@@ -8,10 +8,10 @@ from langchain.agents.openai_assistant import OpenAIAssistantRunnable
 st.title("Datawise Bot")
 
 # Initialize OpenAI client with your API key
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="st.secrets["OPENAI_API_KEY"]")
 
 # Initialize OpenAI Assistant
-assistant_id = "asst_X6RcOFD2WgbBuJoUFM7y2JpU"
+assistant_id = st.secrets["ASSISTANT_ID"]
 tools = [DuckDuckGoSearchRun()]
 agent = OpenAIAssistantRunnable(assistant_id="asst_X6RcOFD2WgbBuJoUFM7y2JpU", as_agent=True)
 agent_executor = AgentExecutor(agent=agent, tools=tools)
